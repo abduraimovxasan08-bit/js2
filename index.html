@@ -1,11 +1,533 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+    <title>Healthy Food</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!DOCTYPE html>
+    <html lang="ru">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Organic Food Project</title>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+        <style>
+            /* CSS: Оформление */
+            :root {
+                --primary-green: #4CAF50;
+                --gradient-green: linear-gradient(135deg, #66BB6A 0%, #43A047 100%);
+                --bg-light: #F9FFF8;
+                --text-dark: #2D2D2D;
+                --text-gray: #666;
+            }
+
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                font-family: 'Poppins', sans-serif;
+                color: var(--text-dark);
+                line-height: 1.6;
+                background-color: #fff;
+                overflow-x: hidden;
+            }
+
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 40px 20px;
+            }
+
+            /* Общие стили для секций */
+            .section {
+                display: flex;
+                align-items: center;
+                gap: 60px;
+                padding: 80px 0;
+                min-height: 80vh;
+            }
+
+            .content {
+                flex: 1;
+            }
+
+            .visual {
+                flex: 1;
+                position: relative;
+                display: flex;
+                justify-content: center;
+            }
+
+            h2 {
+                font-size: 3rem;
+                font-weight: 700;
+                line-height: 1.1;
+                margin-bottom: 25px;
+            }
+
+            p {
+                font-size: 1.1rem;
+                color: var(--text-gray);
+                margin-bottom: 30px;
+                max-width: 500px;
+            }
+
+            .btn {
+                background: var(--gradient-green);
+                color: white;
+                padding: 16px 35px;
+                border: none;
+                border-radius: 50px;
+                font-size: 1rem;
+                font-weight: 600;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                box-shadow: 0 10px 20px rgba(76, 175, 80, 0.2);
+            }
+
+            .btn:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 15px 25px rgba(76, 175, 80, 0.3);
+            }
+
+            /* Декоративные круги за фото */
+            .circle-bg {
+                position: absolute;
+                width: 450px;
+                height: 450px;
+                background: #E8F5E9;
+                border-radius: 50%;
+                z-index: -1;
+            }
+
+            /* Секция 1: Fresh Vegetables */
+            .hero-img {
+                width: 100%;
+                max-width: 450px;
+                height: 450px;
+                padding: 50px;
+                border-radius: 100%;
+                filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.1));
+            }
+
+            /* Секция 2: About Us (Сетка картинок) */
+            .about-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+                width: 100%;
+            }
+
+            .about-grid img {
+                width: 100%;
+                border-radius: 20px;
+                object-fit: cover;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            }
+
+            .tall {
+                grid-row: span 2;
+                height: 100%;
+                min-height: 400px;
+            }
+
+            /* Секция 3: Chefs (Список) */
+            .check-list {
+                list-style: none;
+                margin-bottom: 30px;
+            }
+
+            .check-list li {
+                display: flex;
+                align-items: center;
+                margin-bottom: 15px;
+                font-weight: 500;
+            }
+
+            .check-list li::before {
+                content: '✔️';
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 24px;
+                height: 24px;
+                background: var(--primary-green);
+                color: white;
+                border-radius: 6px;
+                margin-right: 15px;
+                font-size: 12px;
+            }
+
+            /* Секция 4: Newsletter */
+            .newsletter {
+                text-align: center;
+                background: var(--bg-light);
+                padding: 100px 20px;
+                border-radius: 0;
+                margin-top: 50px;
+            }
+
+            .subscribe-box {
+                display: flex;
+                max-width: 600px;
+                margin: 40px auto 0;
+                background: white;
+                padding: 8px;
+                border-radius: 50px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            }
+
+            .subscribe-box input {
+                flex: 1;
+                border: none;
+                padding: 0 25px;
+                border-radius: 50px;
+                outline: none;
+                font-size: 1rem;
+            }
+
+            /* Адаптивность */
+            @media (max-width: 900px) {
+                .section {
+                    flex-direction: column;
+                    text-align: center;
+                    gap: 40px;
+                }
+
+                .section.reverse {
+                    flex-direction: column;
+                }
+
+                p {
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+
+                .circle-bg {
+                    width: 300px;
+                    height: 300px;
+                }
+
+
+
+
+
+                * {
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
+                    font-family: Arial, sans-serif;
+                }
+
+                body {
+                    background: #f5f5f5;
+                }
+
+                /* Hero section */
+                .hero {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 60px 80px;
+                }
+
+                /* Text */
+                .hero-text {
+                    max-width: 500px;
+                }
+
+                .hero-text h1 {
+                    font-size: 40px;
+                    line-height: 1.3;
+                    color: #222;
+                }
+
+                .hero-text span {
+                    color: #3bb77e;
+                }
+
+                .hero-text p {
+                    margin: 20px 0;
+                    color: #666;
+                    font-size: 14px;
+                    line-height: 1.6;
+                }
+
+                /* Button */
+                .btn {
+                    background: #3bb77e;
+                    color: white;
+                    border: none;
+                    padding: 12px 25px;
+                    border-radius: 25px;
+                    cursor: pointer;
+                    transition: 0.3s;
+                }
+
+                .btn:hover {
+                    background: #2e9e66;
+                }
+
+                /* Image */
+                .hero-image img {
+                    width: 400px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
+            }
+            .section1{
+                margin-top: 100px;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+            }
+        </style>
+    </head>
+
 <body>
-    <script src="script.js"></script>
-</body>
-</html>
+    <div class="top">
+        <div class="logo">UI.desk</div>
+
+        <nav class="nav-links">
+            <a href="#" class="active">Home</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+            <a href="#">Testimonials</a>
+        </nav>
+
+        <div class="nav-right">
+            <span class="icon">🔍</span>
+            <span class="icon">🛒</span>
+            <button class="order-btn">Order Now</button>
+        </div>
+    </div>
+    <section class="hero">
+        <div class="hero-text">
+            <h1>
+                Just <span>Eat healthy</span><br>
+                food to live a<br>
+                healthier life
+            </h1>
+
+            <p>
+                Enjoy a healthy life by eating healthy foods
+                that have extraordinary flavors that make
+                your life healthier for today and in the future
+            </p>
+
+            <button class="btn">Order Now</button>
+        </div>
+
+
+
+
+
+        <div class="hero-image">
+            <img src="https://www.povarenok.ru/data/cache/2017mar/25/35/1961986_48654-710x550.jpg" alt="Healthy food">
+        </div>
+    </section>
+    <div class="section1">
+        <h1>Why Choose Us?</h1>
+        <p class="subtitle">Organic food is grown without the use of synthetic chemicals</p>
+
+        <div class="features">
+            <div class="feature">
+                <img src="https://img.icons8.com/color/96/order-history.png" alt="">
+                <h3>Easy to order</h3>
+                <p>foods include fresh produce, meats as well as processed</p>
+            </div>
+
+            <div class="feature">
+                <img src="https://img.icons8.com/color/96/place-marker.png" alt="">
+                <h3>Live Order</h3>
+                <p>Place your online Order easily and get the food instantly</p>
+            </div>
+
+            <div class="feature">
+                <img src="https://img.icons8.com/color/96/leaf.png" alt="">
+                <h3>100% Organic</h3>
+                <p>Organic food is grown without using synthetic chemicals</p>
+            </div>
+        </div>
+
+        <div class="stats">
+            <div class="stat">
+                <h2>40+</h2>
+                <p>Food Partners</p>
+            </div>
+
+            <div class="stat">
+                <h2>459+</h2>
+                <p>Trusted Clients</p>
+            </div>
+
+            <div class="stat">
+                <h2>12k+</h2>
+                <p>Order Online</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+
+        <section class="section">
+            <div class="visual">
+                <div class="circle-bg"></div>
+                <img src="https://png.pngtree.com/png-clipart/20241003/original/pngtree-fresh-tasty-mix-fruit-salad-isolated-on-transparent-background-png-image_16178300.png "
+                    class="hero-img" alt="Fresh Salad">
+            </div>
+            <div class="content">
+                <h2>Fresh Vegetables <br> Every Day</h2>
+                <p>Healthy life as informed declared we enjoy the margaret. Joy horrible moreover man feelings own shy.
+                    Request norland neither mistake for yet.</p>
+                <button class="btn" onclick="scrollToTop()">Learn More</button>
+            </div>
+        </section>
+
+
+
+
+
+    </div>
+
+    <div class="container">
+
+        <section class="section">
+            <div class="visual">
+                <div class="circle-bg"></div>
+                <img src="https://www.thecumberland.com/wp-content/uploads/2025/09/Gordon-Ramsay-hells-kitchen.jpg"
+                    class="hero-img" alt="Fresh Salad">
+            </div>
+            <div class="content">
+                <h2>Cooked by the <br> Best Chefs</h2>
+                <p>Believing neglected so so allowance existence departure in. In design active temper be uneasy. Thirty
+                    for remove plenty regard you summer though.</p>
+                <ul class="check-list">
+                    <li>A guaranteed delicious meal</li>
+                    <li>Food is guaranteed hygienic</li>
+                    <li>Cooked quickly</li>
+                </ul>
+                <button class="btn">Explore More</button>
+            </div>
+        </section>
+
+
+
+
+
+    </div>
+
+
+
+
+
+    <div class="newsletter">
+        <div class="container">
+            <h2>Subscribe to the Newsletter</h2>
+            <p>Enter your email below to get our daily offers and news</p>
+            <form class="subscribe-box" id="newsletterForm">
+                <input type="email" placeholder="Enter your email" required id="emailField">
+                <button type="submit" class="btn">Get Started</button>
+            </form>
+        </div>
+    </div>
+
+
+
+    <section class="dishes">
+        <div class="container">
+
+            <h2>Special Dishes for you</h2>
+            <p class="subtitle">Made with premium & 100% Organic ingredients</p>
+
+            <div class="cards">
+
+                <div class="card">
+                    <img src="https://olivkafood.ru/upload/thumbs/catalog_item_450x310/product_images/image/dscf1342_6555be96f0e29.jpg"
+                        alt="Green Salad">
+                    <h3>Green Salad</h3>
+                    <p>A salad combined with delicious cut of bacon and mixed with tasty and fresh sesame oil.</p>
+                </div>
+
+                <div class="card active">
+                    <img src="https://media.ovkuse.ru/images/step_attachments/426e937e-7930-49b5-9b82-c46bb794b210/426e937e-7930-49b5-9b82-c46bb794b210.jpg"
+                        alt="Beef Salad">
+                    <h3>Beef Salad</h3>
+                    <p>A salad combined with delicious cut of bacon and mixed with tasty and fresh sesame oil.</p>
+                </div>
+
+                <div class="card">
+                    <img src="https://food.fnr.sndimg.com/content/dam/images/food/fullset/2013/1/30/1/GL1B03_Chinese-Chicken-Salad_s4x3.jpg.rend.hgtvcom.616.462.suffix/1382542358133.webp"
+                        alt="Nut Salad">
+                    <h3>Nut Salad</h3>
+                    <p>A salad combined with delicious cut of bacon and mixed with tasty and fresh sesame oil.</p>
+                </div>
+
+            </div>
+
+            <button class="btn">View All</button>
+
+        </div>
+    </section>
+
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+
+                <div class="footer-col">
+                    <h2 class="logo">UI.desk</h2>
+                    <p>On formed merits hunted unable merely by mr whence or.</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Home</h4>
+                    <ul>
+                        <li>Company</li>
+                        <li>News</li>
+                        <li>Team</li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>About</h4>
+                    <ul>
+                        <li>History</li>
+                        <li>Service</li>
+                        <li>Pricing</li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Partner</h4>
+                    <ul>
+                        <li>Business</li>
+                        <li>Plan</li>
+                        <li>Marketing</li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li>UI.desk</li>
+                        <li>(465)954-8487</li>
+                        <li>Lahore, Pakistan</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            © Copyright 2020 by ui.desk. All right reserved.
+        </div>
+    </footer>
